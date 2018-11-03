@@ -25,7 +25,7 @@ class Asesor(models.Model):
 
 class Asesoria(models.Model):
     proyecto = models.ForeignKey(Proyecto, on_delete=models.CASCADE)
-    asesor = models.ForeignKey(Pelicula, on_delete=models.CASCADE)
+    asesor = models.ForeignKey(Asesor, on_delete=models.CASCADE)
 
 class AseroriaInLine(admin.TabularInline):
     model = Asesoria
