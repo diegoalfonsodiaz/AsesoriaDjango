@@ -1,14 +1,27 @@
-<div class="page-header">
-    <h1><a href="/">Asesorias</a></h1>
+{% load static %}
+<html>
+    <head>
+        <title>Django  blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+                <div class="page-header">
+                    <h1><a href="/"> ________Asesorias Meso________</a></h1>
 
-    {% if messages %}
-     <ul class="messages">
-         {% for message in messages %}
-         <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-         {% endfor %}
-     </ul>
-     {% endif %}
-</div>
-
-{% block content %}
-{% endblock %}
+                    <a href="{% url 'asesor_nuevo' %}" class="top-menu"><span class="glyphicon glyphicon-plus"> Nuevo Asesor </span></a> 
+                    
+                    <a href="{% url 'asesores_list' %}" class="top-menu"><span class="glyphicon glyphicon-list"> Lista Asesores</span></a>
+                </div>
+                <div class="content container">
+                    <div class="row">
+                        <div class="col-md-8">
+                        {% block content %}
+                        {% endblock %}
+                        </div>
+                    </div>
+                </div>
+    </body>
+</html>

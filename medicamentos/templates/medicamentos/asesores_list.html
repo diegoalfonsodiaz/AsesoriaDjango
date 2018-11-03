@@ -1,0 +1,35 @@
+{% extends 'medicamentos/base.html' %}
+
+{% block content %}
+<h2>Asesores </h2>
+    {% for Asesor in asesores %}
+
+        <div class="post">
+            <div class="date">
+               <a> Nombre de Asesor</a> 
+               {{ Asesor.nombre }}
+            </div>
+            <a> Facultad de Asesor</a> 
+            <p> 
+                {{ Asesor.facultad }}
+            </p>
+
+            <a> Años </a> 
+            <div class="date">
+                    {{ Asesor.anios }}
+            </div>
+            <a> Profesion </a> 
+            <p> 
+                {{ Asesor.profesion }}
+            </p>
+            <a> Proyectos </a> 
+            <p> 
+                {{ Asesor.proyectos }}
+            </p>
+            <br>
+            <br>
+
+
+        </div>
+    {% endfor %}
+{% endblock %}

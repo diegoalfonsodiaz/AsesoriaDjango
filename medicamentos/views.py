@@ -2,11 +2,19 @@ from django.shortcuts import render
 from django.contrib import messages
 from .forms import AsesorForm
 from medicamentos.models import Asesor, Asesoria
+from .models import Proyecto, Asesor
 
-# Create your views here.
 
-def post_list(request):
-    return render(request, 'medicamentos/post_list.html', {})
+# Create your views here.  Post.objects.all()
+
+def proyectos_list(request):
+    proyectos = Proyecto.objects.all()
+    return render(request, 'medicamentos/proyectos_list.html', {'proyectos': proyectos})
+
+def asesores_list(request):
+    asesores = Asesor.objects.all()
+    return render(request, 'medicamentos/asesores_list.html', {'asesores': asesores})
+
 
 def asesor_nuevo(request):
     if request.method == "POST":
