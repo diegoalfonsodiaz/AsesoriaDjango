@@ -12,4 +12,6 @@ urlpatterns = [
     path('asesor/<int:pk>/', views.asesores_detail, name='asesores_detail'),
     url(r'^proyecto/nuevo/$', views.proyecto_nuevo, name='proyecto_nuevo'),
     url(r'^proyecto/(?P<pk>[0-9]+)/edit/$', views.proyecto_editar, name='proyecto_editar'),
+    url(r'^proyecto/(?P<pk>[0-9]+)/remove/$', views.proyecto_remove, name='proyecto_remove'),
+    #url(r'^proyecto/(?P<pk>\d+)/remove/$', views.proyecto_remove, name='proyecto_remove'),
     ]   

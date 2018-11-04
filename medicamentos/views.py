@@ -6,8 +6,10 @@ from .models import Proyecto, Asesor
 from django.views.generic.detail import DetailView
 from django.utils import timezone
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.  Post.objects.all()
+@login_required
 def asesor_nuevo(request):
     if request.method == "POST":
         formulario = AsesorForm(request.POST)
@@ -22,6 +24,7 @@ def asesor_nuevo(request):
         formulario = AsesorForm()
     return render(request, 'medicamentos/asesor_editar.html', {'formulario': formulario})
 
+@login_required
 def proyecto_nuevo(request):
     if request.method == "POST":
         formulario = ProyectoForm(request.POST)
@@ -50,6 +53,13 @@ def asesores_list(request):
     return render(request, 'medicamentos/asesores_list.html', {'asesores': asesores})
 
 
+@login_required
+def proyecto_remove(request, pk):
+    proyecto = get_object_or_404(Proyecto, pk=pk)
+    proyecto.delete()
+    return render(request, 'medicamentos/proyectos_list.html')
+
+@login_required
 def proyecto_editar(request, pk):
     proyecto = get_object_or_404(Proyecto, pk=pk)
     if request.method == "POST":

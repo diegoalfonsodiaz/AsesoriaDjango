@@ -24,12 +24,17 @@
                                 <a class="nav-link" href="{% url 'proyectos_list' %}" ><span class="glyphicon glyphicon-list">  Proyectos</span></a>
                         </li>
                         
+                        {% if user.is_authenticated %}
                         <li class="nav-item">
                           <a class="nav-link" href="{% url 'asesor_nuevo' %}" ><span class="glyphicon glyphicon-list">  Nuevo Asesor</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'proyecto_nuevo' %}" ><span class="glyphicon glyphicon-list">Nuevo Proyecto</span></a>
                         </li>
+                        <a class="nav-link"> Bienvenido {{ user.username }} (<a nav-link href="{% url 'logout' %}">Log out</a>)</a>
+                        {% else %}
+                        <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock">Login</span></a>
+                        {% endif %}
                         
                       </ul>
                       
