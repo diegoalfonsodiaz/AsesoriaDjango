@@ -50,5 +50,18 @@ def asesores_list(request):
     return render(request, 'medicamentos/asesores_list.html', {'asesores': asesores})
 
 
+def proyecto_editar(request, pk):
+    proyecto = get_object_or_404(Proyecto, pk=pk)
+    if request.method == "POST":
+        form = ProyectoForm(request.POST, instance=proyecto)
+        if form.is_valid():
+            proyecto = form.save(commit=False)
+            
+            return redirect('proyectos_list', pk=proyecto.pk)
+    else:
+        form = ProyectoForm(instance=proyecto)
+    return render(request, 'medicamentos/proyecto_editar.html', {'form': form})   
+
+
 
 
