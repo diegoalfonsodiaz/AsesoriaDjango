@@ -35,6 +35,8 @@
                                 {{ Asesor.profesion }}
                             </p>
                             <a class="nav-link" href="{% url 'asesores_detail' pk=Asesor.pk %}" >{{ Asesor.nombre }}</a>
+
+                            <a class="badge badge-danger" href="{% url 'asesor_remove' pk=Asesor.pk  %}" ><span class="glyphicon glyphicon-list">Borrar Asesor</span></a>
               </p>
             </div>
     </div> 

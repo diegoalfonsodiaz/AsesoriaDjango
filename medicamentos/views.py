@@ -60,6 +60,12 @@ def proyecto_remove(request, pk):
     return render(request, 'medicamentos/proyectos_list.html')
 
 @login_required
+def asesor_remove(request, pk):
+    asesor = get_object_or_404(Asesor, pk=pk)
+    asesor.delete()
+    return render(request, 'medicamentos/asesores_list.html')   
+
+@login_required
 def proyecto_editar(request, pk):
     proyecto = get_object_or_404(Proyecto, pk=pk)
     if request.method == "POST":
