@@ -1,0 +1,30 @@
+{% extends 'medicamentos/base.html' %}
+
+{% block content %}
+<div class="card bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header">{{ Asesor.nombre }}</div>
+        <div class="card-body">
+          <h4 class="card-title">Información</h4>
+          <p class="card-text">
+                
+                    <a > Facultad</a> 
+                    <p> 
+                        {{ Asesor.facultad }}
+                    </p>
+
+                    <a  > años </a> 
+                    
+                    {{ Asesor.anios }}
+                    <br>
+                    
+                    <a > Profesion</a> 
+                    <p> 
+                        {{ Asesor.profesion }}
+                    </p>
+                    
+                    
+                    
+          </p>
+        </div>
+      </div>
+{% endblock %}

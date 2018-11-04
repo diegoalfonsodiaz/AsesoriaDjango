@@ -1,0 +1,32 @@
+{% extends 'medicamentos/base.html' %}
+
+{% block content %}
+<div class="card bg-light mb-3" style="max-width: 50rem;">
+        <div class="card-header">{{ Proyecto.nombre }}</div>
+        <div class="card-body">
+          <h4 class="card-title">Información</h4>
+          <p class="card-text">
+                
+                    <a > Descripccion de Proyecto</a> 
+                    <p> 
+                        {{ Proyecto.descripcion }}
+                    </p>
+
+                    <a  > Fecha Aprobado  </a> 
+                    
+                    {{ Proyecto.fecha_aprobado }}
+                    <br>
+                    
+                    <a > Integrantes de Proyecto</a> 
+                    <p> 
+                        {{ Proyecto.nombre_integrantes }}
+                    </p>
+                    <a  > Carreras de Proyecto</a> 
+                    <p> 
+                        {{ Proyecto.carreras }}
+                    </p>
+                    
+          </p>
+        </div>
+      </div>
+{% endblock %}

@@ -1,65 +1,46 @@
 {% extends 'medicamentos/base.html' %}
 
 {% block content %}
-<h2>Proyectos </h2>
-    {% for Proyecto in proyectos %}
-    
-        <div class="post">
-            <div class="date">
-               <a> Nombre de Proyecto</a> 
-               {{ Proyecto.nombre }}
-            </div>
-            <a> Descripccion de Proyecto</a> 
-            <p> 
-                {{ Proyecto.descripcion }}
-            </p>
-
-            <a> Fecha Aprobado  </a> 
-            <div class="date">
-                    {{ Proyecto.fecha_aprobado }}
-            </div>
-            <a> Integrantes de Proyecto</a> 
-            <p> 
-                {{ Proyecto.nombre_integrantes }}
-            </p>
-            <a> Carreras de Proyecto</a> 
-            <p> 
-                {{ Proyecto.carreras }}
-            </p>
 
 
-        </div>
-    {% endfor %}
+                <h2>Proyectos </h2>
+                    {% for Proyecto in proyectos %}
+
+                    <div class="card bg-light mb-3" style="max-width: 50rem;">
+                            <div class="card-header" ><a class="nav-link" href="{% url 'proyecto_detail' pk=Proyecto.pk %}" ><span class="glyphicon glyphicon-list">{{ Proyecto.nombre }}</span></a></div>
+                            <div class="card-body">
+                              <h4 class="card-title">Información</h4>
+                              <p class="card-text">
+                                        <a > Descripccion de Proyecto</a> 
+                                        <p> 
+                                            {{ Proyecto.descripcion }}
+                                        </p>
+            
+                                        <a  > Fecha Aprobado  </a> 
+                                        
+                                        {{ Proyecto.fecha_aprobado }}
+                                        <br>
+                                        
+                                        <a > Integrantes de Proyecto</a> 
+                                        <p> 
+                                            {{ Proyecto.nombre_integrantes }}
+                                        </p>
+                                        <a  > Carreras de Proyecto</a> 
+                                        <p> 
+                                            {{ Proyecto.carreras }}
+                                        </p>
+                                        
+                              </p>
+                            </div>
+                          </div>
+                    
+                        
+
+              
 
 
+                       
+                    {% endfor %}
+ 
 
-
-    {% for Asesor in asesores %}
-    <h2>Asesores </h2>
-        <div class="post">
-            <div class="date">
-               <a> Nombre de Asesor</a> 
-               {{ Asesor.nombre }}
-            </div>
-            <a> Facultad de Asesor</a> 
-            <p> 
-                {{ Asesor.facultad }}
-            </p>
-
-            <a> Años </a> 
-            <div class="date">
-                    {{ Asesor.anios }}
-            </div>
-            <a> Profesion </a> 
-            <p> 
-                {{ Asesor.profesion }}
-            </p>
-            <a> Proyectos </a> 
-            <p> 
-                {{ Asesor.proyectos }}
-            </p>
-
-
-        </div>
-    {% endfor %}
 {% endblock %}

@@ -13,3 +13,10 @@ class AsesorForm(forms.ModelForm):
             self.fields["proyectos"].widget = forms.widgets.CheckboxSelectMultiple()
             self.fields["proyectos"].help_text = "Ingrese los proyectos que tiene el asesor"
             self.fields["proyectos"].queryset = Proyecto.objects.all()
+
+class ProyectoForm(forms.ModelForm):
+    class Meta:
+        model = Proyecto
+        fields = ('nombre', 'fecha_aprobado', 'descripcion', 'cantidad_integrantes', 'nombre_integrantes', 'carreras')
+
+

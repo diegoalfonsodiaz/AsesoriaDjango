@@ -1,35 +1,52 @@
 {% extends 'medicamentos/base.html' %}
 
 {% block content %}
+
+
+
+
 <h2>Asesores </h2>
+<br>
+<a class="nav-link" href="{% url 'asesor_nuevo' %}" ><span class="glyphicon glyphicon-list">  Nuevo Asesor</span></a>
+<br>
+<br>
+
     {% for Asesor in asesores %}
 
-        <div class="post">
-            <div class="date">
-               <a> Nombre de Asesor</a> 
-               {{ Asesor.nombre }}
+    
+
+
+    <div class="card text-white bg-primary mb-3" style="max-width: 50rem;">
+            <div class="card-header">{{ Asesor.nombre }} </div>
+            <div class="card-body">
+              <h4 class="card-title">Información </h4>
+              <p class="card-text">
+                    <a class="text-success" > Facultad de Asesor</a> 
+                    <p> 
+                    {{ Asesor.facultad }}
+                    </p>
+                
+                            <a class="text-success"> Años </a> 
+                            
+                                    {{ Asesor.anios }}
+                            <br>
+                            <a class="text-success"> Profesion </a> 
+                            <p> 
+                                {{ Asesor.profesion }}
+                            </p>
+                            <a class="nav-link" href="{% url 'asesores_detail' pk=Asesor.pk %}" ><span class="glyphicon glyphicon-list">{{ Asesor.nombre }}</span></a>
+              </p>
             </div>
-            <a> Facultad de Asesor</a> 
-            <p> 
-                {{ Asesor.facultad }}
-            </p>
+    </div> 
 
-            <a> Años </a> 
-            <div class="date">
-                    {{ Asesor.anios }}
-            </div>
-            <a> Profesion </a> 
-            <p> 
-                {{ Asesor.profesion }}
-            </p>
-            <a> Proyectos </a> 
-            <p> 
-                {{ Asesor.proyectos }}
-            </p>
-            <br>
-            <br>
+    
+    
+
+    
+            
+            
+            
 
 
-        </div>
     {% endfor %}
 {% endblock %}
